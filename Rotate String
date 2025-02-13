@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+
+void rotateString(std::string &str, int n) {
+    int len = str.length();
+    // Normalize the rotation if n is greater than length of the string
+    n = n % len;
+    // Rotate the string by splitting and swapping parts
+    std::string temp = str.substr(0, n); // Get the first n characters
+    str = str.substr(n) + temp; // Concatenate the remainder with the first n characters
+}
+
+int main() {
+    std::string str = "HelloWorld";
+    int rotation = 3;
+    
+    std::cout << "Original String: " << str << std::endl;
+    
+    rotateString(str, rotation);
+    
+    std::cout << "Rotated String: " << str << std::endl;
+    
+    return 0;
+}
